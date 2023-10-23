@@ -17,6 +17,17 @@ Este teste utiliza PHP 8.1, Laravel 10 e um banco de dados SQLite simples.
 
 Crítica das Migrations e Seeders: Aponte problemas, se houver, e solucione; Implemente melhorias;
 
+Migrations:
+O erro indica que há uma incompatibilidade entre a coluna referenciada na chave estrangeira e a coluna real na tabela referenciada. Mais especificamente, o erro está relacionado às colunas 'category_id' em 'documents' e 'id' em 'categories'. A mensagem de erro indica que essas colunas são incompatíveis.
+
+Ao analisar o código, parece que é utilizado o tipo bigInteger para a coluna 'category_id' em 'documents'. No entanto, a coluna 'id' em 'categories' esta sem definição de tipo.
+
+A solução para isso é garantir que os tipos de dados das colunas envolvidas na relação de chave estrangeira sejam os mesmos. Podemos definir a coluna 'category_id' em 'documents' como unsignedBigInteger para garantir que o tipo seja o mesmo.
+
+Seeders:
+Ajustado arquivo DatabaseSeeder para utilização do método call chamando a CategorySeeder.
+Incluida data de criação parea controle.
+
 ### Segunda Tarefa:
 
 Crie a estrutura completa de uma tela que permita adicionar a importação do arquivo `storage/data/2023-03-28.json`, para a tabela `documents`. onde cada registro representado neste arquivo seja adicionado a uma fila para importação.
