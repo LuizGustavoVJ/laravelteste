@@ -26,7 +26,7 @@ class DocumentController extends Controller
         // 2 - Validar se é um arquivo Json
         $fileExtension = $request->file('file')->extension();
         if ($fileExtension !== 'json') {
-            return redirect('/import')->with('error', 'Apenas arquivos JSON são suportados.');
+            return redirect('/import')->with('error', 'Formato de arquivo inválido. Por favor, envie um arquivo JSON.');
         }
     
         // 3 - Mover o arquivo para a pasta 'data' dentro de 'storage'

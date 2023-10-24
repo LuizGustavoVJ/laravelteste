@@ -40,7 +40,7 @@ class Document extends Model
             // Salvar o documento
             $document->save();
         } catch (\Exception $e) {
-            echo "Erro ao criar o documento para a categoria '{$documentData['categoria']}': {$e->getMessage()}\n";
+            logger("Erro ao criar o documento para a categoria '{$documentData['categoria']}': {$e->getMessage()}\n");
         }
     }
 }
