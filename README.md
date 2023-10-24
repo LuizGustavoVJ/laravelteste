@@ -2,14 +2,20 @@
 
 1. Faça o clone desse repositório;
 2. Execute o `composer install`;
-3. Crie e ajuste o `.env` conforme necessário
-4. Execute as migrations e os seeders com o seguinte comando: `php artisan migrate --seed`
-5. Execute o comando para iniciar o servidor de desenvolvimento local. `php artisan serve`
-6. Acesse o aplicativo pelo navegador em `http://localhost:8000`.
-7. Utilize a tela inicial para adicionar a importação do arquivo storage/data/2023-03-28.json ou do que mais desejar, desde que no mesmo formato.
-8. Pressione o botão `import` para importar o arquivo desejado.
-9. Abra em seu navegador a url `http://localhost:8000/process-queue`, la estarão listados os arquivos importados para executar a fila .10. Clique em `Processar fila` para iniciar o processamento da fila.
-11. Execute o teste para verificar o funcionamento do serviço, execute: `php artisan test` no terminal e veja qual a saída
+3. Tenha iointalado na máquina o `PHP`, o `Laravel`, o `Composer` e o `MySql`;
+4. Caso não tenha seguem urls:
+    `https://kinsta.com/pt/base-de-conhecimento/mysql-community-server/#:~:text=Voc%C3%AA%20deve%20ver%20dois%20arquivos,depois%20instalar%20o%20MySQL%20manualmente.`, 
+    `https://suporte.hostgator.com.br/hc/pt-br/articles/115004145214-Como-instalar-o-Laravel-`, 
+    `https://www.php.net/downloads`, `https://www.hostinger.com.br/tutoriais/como-instalar-e-usar-o-composer`;
+4. Crie e ajuste o `.env` conforme necessário
+5. crie a tabela de banco de dados no MySQL com o nome `laravel`.
+6. Execute as migrations e os seeders com o seguinte comando: `php artisan migrate --seed`
+7. Execute o comando para iniciar o servidor de desenvolvimento local. `php artisan serve`
+8. Acesse o aplicativo pelo navegador em `http://localhost:8000`.
+9. Utilize a tela inicial para adicionar a importação do arquivo storage/data/2023-03-28.json ou do que mais desejar, desde que no mesmo formato.
+10. Pressione o botão `import` para importar o arquivo desejado.
+11. Abra em seu navegador a url `http://localhost:8000/process-queue`, la estarão listados os arquivos importados para executar a fila .12. Clique em `Processar fila` para iniciar o processamento da fila.
+13. Execute o teste para verificar o funcionamento do serviço, execute: `php artisan test` no terminal e veja qual a saída
 
 ### Primeira Tarefa:
 
