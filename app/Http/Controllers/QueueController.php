@@ -17,16 +17,24 @@ class QueueController extends Controller
 
     public function processQueue()
     {
+        // Executar o comando para processar a fila
         Artisan::call('queue:work', ['--stop-when-empty' => true]);
 
-        // Remover arquivos processados da tabela
-        $this->removeProcessedFiles();
+        // Atualizar a visão com os arquivos restantes na fila
+        $queueFiles = $this->removeProcessedFiles();
 
-        return redirect('/process-queue')->with('status', 'Fila processada com sucesso!');
+        if ($queueFiles->isEmpty()) {
+            return redirect('/process-queue')->with('status', 'Fila processada com sucesso!')->with('emptyQueue', true);
+        }
+
+        return redirect('/process-queue')->with('status', 'Fila processada com sucesso!')->with('emptyQueue', false)->with('queueFiles', $queueFiles);
     }
 
     protected function removeProcessedFiles()
     {
+        // Executar o comando para obter os arquivos processados
+        Artisan::call('queue:work', ['--stop-when-empty' => true]);
+        
         // Obter arquivos processados
         $processedFiles = Artisan::output();
 
@@ -36,7 +44,6 @@ class QueueController extends Controller
                 return !Str::contains($processedFiles, basename($file));
             });
 
-        // Atualizar a visão
-        return view('process-queue', ['queueFiles' => $queueFiles]);
+        return $queueFiles;
     }
 }

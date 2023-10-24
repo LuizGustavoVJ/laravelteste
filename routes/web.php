@@ -16,7 +16,7 @@ use App\Http\Controllers\QueueController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('/import-form');
 });
 
 Route::get('/import', [DocumentController::class, 'showImportForm']);
