@@ -34,11 +34,9 @@ class ProcessDocumentImport implements ShouldQueue
         $data = json_decode($jsonContent, true);
 
         // Adicionar registros à tabela de documentos
-        foreach ($data as $documentData) {
-            Document::create($documentData);
+        foreach ($data['documentos'] as $documentData) {
+            Document::importDocuments($documentData);
         }
 
-        // Remover o arquivo importado
-        Storage::delete($this->filePath);
     }
 }

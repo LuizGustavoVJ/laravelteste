@@ -11,11 +11,6 @@ class Category extends Model
 
     protected $fillable = ['name'];
 
-    // Para preenchimento automático do created_at
-    protected $dispatchesEvents = [
-        'creating' => \App\Events\CategoryCreating::class,
-    ];
-
     public function documents()
     {
         return $this->hasMany(Document::class);
