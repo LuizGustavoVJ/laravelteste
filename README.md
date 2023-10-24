@@ -9,6 +9,7 @@
 7. Utilize a tela inicial para adicionar a importação do arquivo storage/data/2023-03-28.json ou do que mais desejar, desde que no mesmo formato.
 8. Pressione o botão `import` para importar o arquivo desejado.
 9. Abra em seu navegador a url `http://localhost:8000/process-queue`, la estarão listados os arquivos importados para executar a fila .10. Clique em `Processar fila` para iniciar o processamento da fila.
+11. Execute o teste para verificar o funcionamento do serviço, execute: `php artisan test` no terminal e veja qual a saída
 
 ### Primeira Tarefa:
 
